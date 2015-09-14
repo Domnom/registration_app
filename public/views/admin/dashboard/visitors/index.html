@@ -1,0 +1,17 @@
+<div>
+	<table width=50% border=1px align="center">
+		<thead>
+			<tr>
+				<td>Name</td><td>email</td><td>status</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="visitor in visitors">
+				<td>{{ visitor.name }}</td>
+				<td>{{ visitor.email }}</td>
+				<td>{{ visitor.status }}</td>
+				<td><input type="button" value="View Profile" ng-click=""/></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

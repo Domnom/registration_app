@@ -1,0 +1,8 @@
+<ul ng-show="vm.isLoaded">
+	
+	<h1>{{ vm.employee.name }}</h1>
+	<hr/>
+	<p><strong>E-mail:</strong> {{ vm.employee.email }}<p>
+	<hr/>
+	<p><a ng-href="#/employee/edit/{{vm.employee.id}}" class="btn btn-default">edit</a></p>
+</ul>

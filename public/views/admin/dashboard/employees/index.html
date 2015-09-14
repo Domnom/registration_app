@@ -1,0 +1,26 @@
+<div ng-show="vm.isLoaded">
+	<table width=40% border=1px align="center">
+		<thead>
+			<tr>
+				<td>Name</td><td>email</td><td>status</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-model="vm.employees" ng-repeat="employee in vm.employees">
+				<td ng-model="employee.name">{{ employee.name }}</td>
+				<td ng-model="employee.email">{{ employee.email }}</td>
+				<td>{{ employee.status }}</td>
+
+				<td><a ng-href="#/employee/{{employee.id}}" class="btn btn-default">View</a></td>
+			</tr>
+		</tbody>
+
+
+		
+	</table>
+	<h3>Testing things here</h3>
+	<br/>
+	<input ng-model="vm.testVar" type="text" />
+	<button ng-click="vm.testEmployeeCall()">fire event</button>
+
+</div>

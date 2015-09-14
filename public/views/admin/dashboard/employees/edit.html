@@ -1,0 +1,11 @@
+<div ng-show="vm.isLoaded">
+	<br/>
+	<form>
+		Name: <input ng-model="vm.employee.name" type="text" name="name" />
+		&emsp;
+		E-mail: <input ng-model="vm.employee.email" type="email" name="email" />
+	</form>
+	</br>
+	<!--<button ng-click="vm.updateEmployee()" class="btn btn-default">Save Changes</button>-->
+	<a ng-click="vm.updateEmployee()" ng-href="#/employee" class="btn btn-default">Save</a>
+</div>
