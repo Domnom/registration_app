@@ -1,6 +1,6 @@
 dashboardModule.controller('IndexEmployeeController', 
-	['indexEmployeeService', '$rootScope', 'employeeService', 'socketio', '$filter',
-	function(indexEmployeeService, $rootScope, employeeService, socketio, $filter) {
+	['employeeService', 'socketService',
+	function(employeeService, socketService) {
 
 	
 	//$location.path() saves anything that follows the # symbol
@@ -18,7 +18,7 @@ dashboardModule.controller('IndexEmployeeController',
 
 	// SOCKET CALLS
 
-		socketio.on('refreshEmployees', angular.bind(this, function(data) {
+		socketService.on('refreshEmployees', angular.bind(this, function(data) {
 			this.employees = data;
 		}));
 
@@ -27,7 +27,7 @@ dashboardModule.controller('IndexEmployeeController',
 		// using this to test iOS app
 		this.testEmployeeCall = function() {
 			employeeService.getEmployees().then(function(response) {
-				socketio.emit('employee updated', response);
+				socketService.emit('employee updated', response);
 			});
 		};
 	}]

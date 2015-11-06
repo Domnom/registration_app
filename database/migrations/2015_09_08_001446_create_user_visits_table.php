@@ -19,10 +19,7 @@ class CreateUserVisitsTable extends Migration
             $table->dateTime('time_in')->nullable();
             $table->dateTime('time_out')->nullable();
             $table->timestamps();
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onDelete('cascade');
+
         });
     }
 
@@ -33,9 +30,7 @@ class CreateUserVisitsTable extends Migration
      */
     public function down()
     {
-        Schema::table('user_visits', function(Blueprint $table){
-            $table->dropForeign('user_visits_user_id_foreign');
-        });
-        Schema::drop('user_visits');
+
+        
     }
 }

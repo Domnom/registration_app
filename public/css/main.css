@@ -1,0 +1,20 @@
+/* Vertical side-nav */
+
+@media (min-width: 768px) {
+	.navbar {
+		max-width: 300px;
+		margin-right: 0;
+		margin-left: 0;
+	}
+	.navbar-nav,
+	.navbar-nav > li,
+	.navbar-left,
+	.navbar-right,
+	.navbar-header
+	{float:none !important;}
+
+	.navbar-right .dropdown-menu {left:0; right:auto;}
+	.navbar-collapse .navbar-nav.navbar-right:last-child {
+		margin-right: 0;
+	}
+}

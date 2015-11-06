@@ -36,7 +36,7 @@ class RedirectIfAuthenticated
     {
         if ($this->auth->check()) {
             if ($this->auth->user()->user_role_id === 3){
-                return redirect('/admin/dashboard');
+                return redirect('/admin');
             }
             return redirect('/');
         }

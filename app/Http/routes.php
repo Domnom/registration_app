@@ -20,18 +20,26 @@ Route::get('/', function () {
 // ------------------------------------------------
 
 // redirect admin to the dashboard
-Route::get('/admin', function(){
-	return redirect('/admin/dashboard');
-});
+// Route::get('/admin', function(){
+// 	return redirect('/admin/dashboard');
+// });
 
 $router->group([
-		'namespace' => 'dashboard',
+		'namespace' => 'admin',
 		'middleware' => 'admin',
 	],
+	// Change to /admin/ and run using angular JS from there
 	function() {
-		Route::get('/admin/dashboard', function(){
+		Route::get('/admin', function() {
 			return view('layouts\dashboard');
 		});
+		// Route::get('/admin/dashboard', function(){
+		// 	return view('layouts\dashboard');
+		// });
+
+
+
+
 		//Route::get('/admin/dashboard', 'DashboardController@index');
 		//Route::resource('/admin/employee', 'EmployeeController');
 		//Route::resource('/admin/visitor', 'VisitorController');

@@ -21,9 +21,8 @@ class ApiEmployeeController extends Controller
      */
     public function index()
     {
-        //return Response::json(array(User::all()->where('user_role_id', 1)));
         //return User::all()->where('user_role_id', 1);
-        $employees = User::all()->where('user_role_id', 1);
+        $employees = User::where('user_role_id', 1)->get();
         //return Response::json(array($employees));
         return $employees;
     }

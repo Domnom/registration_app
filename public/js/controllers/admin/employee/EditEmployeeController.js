@@ -1,6 +1,6 @@
 dashboardModule.controller('EditEmployeeController',
-	['$routeParams', '$http','showEmployeeService', 'socketio', 'employeeService',
-	function($routeParams, $http, showEmployeeService, socketio, employeeService) {
+	['$routeParams', 'showEmployeeService', 'socketService', 'employeeService',
+	function($routeParams, showEmployeeService, socketService, employeeService) {
 
 
 
@@ -10,13 +10,22 @@ dashboardModule.controller('EditEmployeeController',
 		// First get the employee we are editing
 		this.employeeId = $routeParams.employeeId;
 
+
+		employeeService.getEmployee(this.employeeId)
+			.then(angular.bind(this, function(response) {
+			this.employee = response.data;
+			this.isLoaded = true;
+			})
+		);
+
 		//Figure out a way to pass variables between controllers
-		showEmployeeService(this.employeeId)
-			.success(angular.bind(this, function(data) {
-				this.employee = data;
-				this.isLoaded = true;
+		// showEmployeeService(this.employeeId)
+		// 	.success(angular.bind(this, function(data) {
+		// 		this.employee = data;
+		// 		this.isLoaded = true;
 				
-			}));
+		// 	}));
+
 
 
 		// Function to save updated employee
