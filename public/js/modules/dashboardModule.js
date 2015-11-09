@@ -37,59 +37,59 @@ Line 24: Manually redirected URL. This is done because the employees
 
 dashboardModule.config(function($routeProvider, $urlRouterProvider, $stateProvider) {
 
-	console.log($urlRouterProvider);
-	$urlRouterProvider.otherwise("/");
+// 	console.log($urlRouterProvider);
+// 	$urlRouterProvider.otherwise("/");
 
-	$stateProvider
+// 	$stateProvider
 
-	.state ('dashboard', {
-		url: '/',
-		templateURL: '/views/admin/dashboard/home/main.html'
+// 	.state ('dashboard', {
+// 		url: '/',
+// 		templateURL: '/views/admin/dashboard/home/main.html'
+// 	})
+
+// });
+
+
+// ============================== OLD =================================
+//------------------------------ Routes -------------------------------
+	$routeProvider
+
+//----------------------------- Employees -----------------------------
+	
+	//~~ Index ~~//
+	.when('/employee', {
+		templateUrl: '/views/admin/dashboard/employees/index.html',
+		controller: 'IndexEmployeeController',
+		controllerAs: 'vm'
 	})
 
+	//~~ Show ~~//
+	.when('/employee/:employeeId', {
+		templateUrl: '/views/admin/dashboard/employees/show.html',
+		controller: 'ShowEmployeeController',
+		controllerAs: 'vm'
+	})
+
+	//~~ Edit ~~//
+	.when('/employee/edit/:employeeId', {
+		templateUrl: '/views/admin/dashboard/employees/edit.html',
+		controller: 'EditEmployeeController',
+		controllerAs: 'vm'
+	})
+
+//------------------------------ Visitors ------------------------------
+
+	//~~ Index ~~//
+	.when('/visitor', {
+		templateUrl: '/views/admin/dashboard/visitors/index.html',
+		controller: 'VisitorController'
+	})
+
+//------------------------------- Home --------------------------------
+
+	.otherwise({
+		templateUrl: '/views/admin/dashboard/home/main.html'
+
+	})
+// =============================== OLD =================================
 });
-
-
-// // ============================== OLD =================================
-// //------------------------------ Routes -------------------------------
-// 	$routeProvider
-
-// //----------------------------- Employees -----------------------------
-	
-// 	//~~ Index ~~//
-// 	.when('/employee', {
-// 		templateUrl: '/views/admin/dashboard/employees/index.html',
-// 		controller: 'IndexEmployeeController',
-// 		controllerAs: 'vm'
-// 	})
-
-// 	//~~ Show ~~//
-// 	.when('/employee/:employeeId', {
-// 		templateUrl: '/views/admin/dashboard/employees/show.html',
-// 		controller: 'ShowEmployeeController',
-// 		controllerAs: 'vm'
-// 	})
-
-// 	//~~ Edit ~~//
-// 	.when('/employee/edit/:employeeId', {
-// 		templateUrl: '/views/admin/dashboard/employees/edit.html',
-// 		controller: 'EditEmployeeController',
-// 		controllerAs: 'vm'
-// 	})
-
-// //------------------------------ Visitors ------------------------------
-
-// 	//~~ Index ~~//
-// 	.when('/visitor', {
-// 		templateUrl: '/views/admin/dashboard/visitors/index.html',
-// 		controller: 'VisitorController'
-// 	})
-
-// //------------------------------- Home --------------------------------
-
-// 	.otherwise({
-// 		templateUrl: '/views/admin/dashboard/home/main.html'
-
-// 	})
-// // =============================== OLD =================================
-// });
